@@ -1,5 +1,5 @@
 <?php
-$servername = "localhost";
+$servername = "mysql";
 $username = "root";
 $password = "Trong0311"; 
 $dbname = "login_db";
@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
-    $password = $_POST['password']; // Không mã hóa mật khẩu
+    $password = $_POST['password']; 
 
     $sql = "INSERT INTO users (email, password) VALUES (?, ?)";
     $stmt = $conn->prepare($sql);
