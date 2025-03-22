@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: my-php-app
+    runtime: docker
+    repo: https://github.com/trongsieuhung/testlogin.git
+    branch: main
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        value: "mysql://root:Trong0311@your-mysql-host/login_db"

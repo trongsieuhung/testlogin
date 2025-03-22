@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  php-apache:
+    build: .
+    container_name: php-container
+    ports:
+      - "8081:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - mysql
+    environment:
+      DATABASE_URL: "mysql://root:${MYSQL_ROOT_PASSWORD}@mysql-container/${MYSQL_DATABASE}"
+
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
