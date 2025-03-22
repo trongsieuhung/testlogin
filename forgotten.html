@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgotten Password</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      h1 {
+        color: #1877f2;
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 14px;
+        color: #606770;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #dddfe2;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .submit-btn {
+        background-color: #1877f2;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .submit-btn:hover {
+        background-color: #145dbf;
+      }
+
+      .back-link {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+
+      .back-link a {
+        color: #1877f2;
+        text-decoration: none;
+      }
+
+      .back-link a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Forgotten Password?</h1>
+      <p>
+        Please enter your email address or phone number to search for your
+        account.
+      </p>
+      <form class="form">
+        <div class="input-group">
+          <input type="text" placeholder="Email or phone number" required />
+        </div>
+        <button class="submit-btn" type="submit">Search</button>
+      </form>
+      <div class="back-link">
+        <a href="index.html">Back to Login</a>
+      </div>
+    </div>
+  </body>
+</html>

