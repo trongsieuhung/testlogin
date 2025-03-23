@@ -14,4 +14,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: https://www.facebook.com");
     exit();
 }
-?>
+?>ls 
